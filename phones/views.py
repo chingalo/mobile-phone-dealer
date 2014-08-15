@@ -14,3 +14,9 @@ from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image, Tabl
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from phones.models import *
 
+
+def home(request):
+	
+	context = {}
+	return render(request,'index.html',context)
+
