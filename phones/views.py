@@ -16,7 +16,9 @@ from phones.models import *
 
 
 def home(request):
+	allPhones = Phone.objects.all()
+
 	
-	context = {}
+	context = {'allPhones':allPhones,}
 	return render(request,'index.html',context)
 
