@@ -3,20 +3,87 @@
 
 <!-- home page -->
 <div data-role = "page" id = "home">
-	
-	<div data-role = "header">
-		<a href = "#" class = "ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
-		<a href = "#" class = "ui-btn ui-corner-all ui-shadow ui-icon-lock ui-btn-icon-left">login</a>
-		<h5>MobileTz</h5>	
-		
-	</div>
+	<div data-role = "header" data-position = "fixed">
+		<a href = "#" class = "ui-btn ui-btn-right  ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
+		<a href = "#" class = "ui-btn ui-btn-left  ui-corner-all ui-shadow ui-icon-lock ui-btn-icon-left">login</a>
+		<h5>MobileTz</h5>			
+	</div>	
 	
 	<div data-role = "main" class = "ui-content">
+		
+		<ul data-role = "listview" data-inset = "true">
+			<li><a href = "#aboutus">About us</a></li>		
+			<li><a href = "#ourproducts">Our products</a></li>		
+			<li><a href = "#conctactus" >Conctact us</a></li>		
+		</ul>
 	
 	</div>
 	
-	<div data-role = "footer">
-	
+	<div data-role = "footer" data-position = "fixed"><br>
+		<h4>&copy; {% now " Y" %}</h4><br>
 	</div>
 </div>
+
+
+
+<!---   our products page---->
+<div data-role = "page" id = "ourproducts">
+	<div data-role = "header" data-position = "fixed">
+		<a href = "#home" class = "ui-btn ui-btn-right  ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
+		<a href = "#" class = "ui-btn ui-btn-left  ui-corner-all ui-shadow ui-icon-lock ui-btn-icon-left">login</a>
+		<h5>MobileTz</h5>			
+	</div>	
+	
+	<div data-role = "main" class = "ui-content">
+		
+		our products.... commming soon
+	
+	</div>
+	
+	<div data-role = "footer" data-position = "fixed"><br>
+		<h4>&copy; {% now " Y" %}</h4><br>
+	</div>
+</div>
+
+
+<!---   about us page---->
+<div data-role = "page" id = "aboutus">
+	<div data-role = "header" data-position = "fixed">
+		<a href = "#home" class = "ui-btn ui-btn-right  ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
+		<a href = "#" class = "ui-btn ui-btn-left  ui-corner-all ui-shadow ui-icon-lock ui-btn-icon-left">login</a>
+		<h5>MobileTz</h5>			
+	</div>	
+	
+	<div data-role = "main" class = "ui-content">
+		
+		all about selling products for now based on mobile phones
+	
+	</div>
+	
+	<div data-role = "footer" data-position = "fixed"><br>
+		<h4>&copy; {% now " Y" %}</h4><br>
+	</div>
+</div>
+
+
+<!-- conctact us page ---->
+<div data-role = "page" id = "conctactus">
+	<div data-role = "header" data-position = "fixed">
+		<a href = "#home" class = "ui-btn ui-btn-right  ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
+		<a href = "#" class = "ui-btn ui-btn-left  ui-corner-all ui-shadow ui-icon-lock ui-btn-icon-left">login</a>
+		<h5>MobileTz</h5>			
+	</div>	
+	
+	<div data-role = "main" class = "ui-content">
+		
+		contact form ..... comming soon
+	
+	</div>
+	
+	<div data-role = "footer" data-position = "fixed"><br>
+		<h4>&copy; {% now " Y" %}</h4><br>
+	</div>
+</div>
+
+
 {%endblock%}
