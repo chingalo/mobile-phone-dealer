@@ -16,5 +16,5 @@ class Phone_gallery(models.Model):
 	image = models.ImageField(upload_to='gallery')
 	
 	def __unicode__(self):
-		return self.name_of_image
+		return self.brand.model_of_Phone
 
