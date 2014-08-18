@@ -13,7 +13,6 @@ class Phone(models.Model):
 
 class Phone_gallery(models.Model):
 	brand = models.ForeignKey('Phone',on_delete = models.CASCADE)
-	name_of_image = models.CharField(max_length = 200)
 	image = models.ImageField(upload_to='gallery')
 	
 	def __unicode__(self):
