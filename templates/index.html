@@ -72,7 +72,7 @@
 				<h1>Gallery</h1>
 				{% if phone.phone_gallery_set.all %} 
 				{% for image in phone.phone_gallery_set.all %}				
-				<p><img style = "border-radius: 10px;" src = "{{ image.image.url }}" width = "50%" height = "80px" />				
+				<a href = "#image{{image.id}}" ><img style = "border-radius: 10px;height:100px" src = "{{ image.image.url }}" width = "50%"  /></a>			
 				{% endfor %}
 				{% else %} 
 				<p>No image add for this phone</p>
@@ -91,7 +91,17 @@
 
 
 <!--- image viewing ---->
-
+{% for image in allImages %}
+<div data-role = "page" data-dialog = "true" id = "image{{image.id}}">	
+	<div data-role="header">
+		<h1></h1>
+	  </div>
+	<div data-role = "main" class = "ui-content">
+		<img style = "border-radius: 10px;" src = "{{ image.image.url }}" width = "100%" height = ""/>
+	</div>
+		
+</div>
+{% endfor %}
 
 
 
@@ -134,7 +144,7 @@
 			</div>
 			<div data-role = "collapsible">
 				<h1>Who is the Developer?</h1>
-				<p><img style = "border-radius: 10px;" src = "{{STATIC_URL}}img/developer.png" width = "100%" height = "120px" />
+				<p><img style = "border-radius: 10px;" src = "{{STATIC_URL}}img/developer.png" width = "100%" height = "200px" />
 				Mr Joseph chingalo, currently studing B.Sc with computer science at The University of Dar-es-salaam
 				</p>
 			</div>		
@@ -149,7 +159,7 @@
 
 
 <!-- conctact us page ---->
-<div data-role = "page" id = "conctactus">
+<div data-role = "page" id = "conctactus" ui-theme = "a">
 	<div data-role = "header" data-position = "fixed">
 		<a href = "#home" class = "ui-btn ui-btn-right  ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
 		<a href = "#" class = "ui-btn ui-btn-left  ui-corner-all ui-shadow ui-icon-lock ui-btn-icon-left">login</a>
