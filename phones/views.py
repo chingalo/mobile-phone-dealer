@@ -20,19 +20,25 @@ def home(request):
 	allImages = Phone_gallery.objects.all()
 	
 	allNokia = []
+	nokia = 0
 	allHtc = []
+	htc = 0
 	allSony = []
+	sony = 0
 	for phone in allPhones:
 		if phone.brand_of_Phone == 'nokia':
 			allNokia.append(phone)
+			nokia += phone.quantity
+			
 		elif phone.brand_of_Phone == 'htc':
 			allHtc.append(phone)
+			htc += phone.quantity
+			
 		elif phone.brand_of_Phone == 'sony':
 			allSony.append(phone)
+			sony += phone.quantity
 	
-	nokia = len(allNokia)
-	htc = len(allHtc)
-	sony = len(allSony)
+	 
 	
 	context = {'allPhones':allPhones,'allSony':allSony,'allNokia':allNokia,'allHtc':allHtc,'allImages':allImages,'nokia':nokia,'htc':htc,'sony':sony }
 	return render(request,'index.html',context)
