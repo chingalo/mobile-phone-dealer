@@ -51,16 +51,15 @@
 
 
 
-<!-- product in  given brand ---- 
-			{% for phone in allPhones %}
-			<li><a href = "#phone{{phone.id}}">{{phone.brand_of_Phone}}</a></li>
-			{% endfor %}--->
+<!-- product in  given brand ----->
 
 <!-- for nokia -->
 <div data-role = "page" id = "nokia">
-	<div data-role = "header">
-	
-	</div>
+	<div data-role = "header" data-position = "fixed">
+		<a href = "#home" class = "ui-btn ui-btn-right  ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
+		<a href = "#" class = "ui-btn ui-btn-left  ui-corner-all ui-shadow ui-icon-lock ui-btn-icon-left">login</a>
+		<h5>MobileTz</h5>			
+	</div>	
 	<div data-role = "main" class = "ui-content">
 		<a href = "#ourproducts" class="ui-btn  ui-corner-all ui-shadow ui-icon-back ui-btn-icon-left">Back to brands</a>
 		<div data-role = "listview" data-inset = "true" data-filter = "true">
@@ -69,17 +68,19 @@
 			{% endfor %}
 		</div>
 	</div>
-	<div data-role = "footer">
-	
+	<div data-role = "footer" ><br>
+		<h4>&copy; {% now " Y" %}</h4><br>
 	</div>
 </div>
 
 
 <!-- for htc-->
 <div data-role = "page" id = "htc">
-	<div data-role = "header">
-	
-	</div>
+	<div data-role = "header" data-position = "fixed">
+		<a href = "#home" class = "ui-btn ui-btn-right  ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
+		<a href = "#" class = "ui-btn ui-btn-left  ui-corner-all ui-shadow ui-icon-lock ui-btn-icon-left">login</a>
+		<h5>MobileTz</h5>			
+	</div>	
 	<div data-role = "main" class = "ui-content">
 		<a href = "#ourproducts" class="ui-btn  ui-corner-all ui-shadow ui-icon-back ui-btn-icon-left">Back to brands</a>
 		<div data-role = "listview" data-inset = "true" data-filter = "true">
@@ -88,8 +89,8 @@
 			{% endfor %}
 		</div>
 	</div>
-	<div data-role = "footer">
-	
+	<div data-role = "footer" ><br>
+		<h4>&copy; {% now " Y" %}</h4><br>
 	</div>
 </div>
 
@@ -98,9 +99,12 @@
 
 <!--- for sony --->
 <div data-role = "page" id = "sony">
-	<div data-role = "header">
+	<div data-role = "header" data-position = "fixed">
+		<a href = "#home" class = "ui-btn ui-btn-right  ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
+		<a href = "#" class = "ui-btn ui-btn-left  ui-corner-all ui-shadow ui-icon-lock ui-btn-icon-left">login</a>
+		<h5>MobileTz</h5>			
+	</div>		
 	
-	</div>
 	<div data-role = "main" class = "ui-content">
 		<a href = "#ourproducts" class="ui-btn  ui-corner-all ui-shadow ui-icon-back ui-btn-icon-left">Back to brands</a>
 		<div data-role = "listview" data-inset = "true" data-filter = "true">
@@ -109,8 +113,8 @@
 			{% endfor %}
 		</div>
 	</div>
-	<div data-role = "footer">
-	
+	<div data-role = "footer" ><br>
+		<h4>&copy; {% now " Y" %}</h4><br>
 	</div>
 </div>
 
@@ -202,7 +206,7 @@
 				<div data-role = "collapsible">
 					<h1>Mobile phone dealers</h1>
 					<p>
-						We offer an account where you can manage your mobiles phones you have and immediately being avilable in our store ready for customer to view
+						We offer an account where you can manage your mobiles phones you have and immediately being available in our store ready for customer to view
 					</p>
 				</div>
 			</div>
