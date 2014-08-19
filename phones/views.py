@@ -60,7 +60,32 @@ def sendContact(request):
 		send_mail(subject,message,from_email,recipient_list,fail_silently=False)
 		
 	return HttpResponseRedirect('/')
+
+
+def login(request):
 	
+	if request.POST:
+				
+		dealers = Dealer.objects.all()
+		
+		form = request.POST
+		username = form.getlist('username')
+		password = form.getlist('password') 
+		dealerStatus = ""
+		
+		for dealer in dealers:
+			if dealer.username == username[0] and dealer.password == password[0] :
+				dealerStatus = 'member'
+		if	dealerStatus == 'member':
+			dealer = Dealer.objects.get(username = username[0])
+			return render(request, 'login.html',{'loginDealer':dealer})
+		else:
+			
+			return render(request, 'loginTry.html',{'username':username[0]})			
+					
+	return HttpResponseRedirect('/#login')
+	
+
 			
 		
 		
