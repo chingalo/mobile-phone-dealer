@@ -7,7 +7,7 @@ class Dealer(models.Model):
 	username = models.CharField(max_length = 200)
 	password = models.CharField(max_length = 200)
 	login_status = models.CharField(max_length = 200, default = 'log_out')
-	account_ status = models.CharField(max_length = 200, default = 'active')
+	account_status = models.CharField(max_length = 200, default = 'active')
 	
 	def __unicode__(self):
 		return self.name
