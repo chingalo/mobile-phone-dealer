@@ -37,3 +37,24 @@ def home(request):
 	context = {'allPhones':allPhones,'allSony':allSony,'allNokia':allNokia,'allHtc':allHtc,'allImages':allImages,'nokia':nokia,'htc':htc,'sony':sony }
 	return render(request,'index.html',context)
 
+
+def sendContact(request):	
+	if request.POST:
+		form = request.POST
+		name = form.getlist('name')
+		mobilenumber = form.getlist('mobilenumber')
+		email = form.getlist('email')
+		rate = form.getlist('rate')
+		messages = form.getlist('message')
+		subject = "COMMENTS, RATING AND PROPASSAL FROM MobileTz"
+		message = "Name : " + name[0] + "\nE-mail : " + email[0] + "\nMobile number : " + mobilenumber[0] + "\nMessage : " + messages[0] + "\nRating : " + str(rate[0])
+		recipient_list = ['profschingalo@gmail.com']
+		from_email = ""
+		
+		send_mail(subject,message,from_email,recipient_list,fail_silently=False)
+		
+	return HttpResponseRedirect('/')
+	
+			
+		
+		

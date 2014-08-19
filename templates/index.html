@@ -60,6 +60,7 @@
 		<a href = "#" class = "ui-btn ui-btn-left  ui-corner-all ui-shadow ui-icon-lock ui-btn-icon-left">login</a>
 		<h5>MobileTz</h5>			
 	</div>	
+	
 	<div data-role = "main" class = "ui-content">
 		<a href = "#ourproducts" class="ui-btn  ui-corner-all ui-shadow ui-icon-back ui-btn-icon-left">Back to brands</a>
 		<div data-role = "listview" data-inset = "true" data-filter = "true">
@@ -68,6 +69,7 @@
 			{% endfor %}
 		</div>
 	</div>
+	
 	<div data-role = "footer" ><br>
 		<h4>&copy; {% now " Y" %}</h4><br>
 	</div>
@@ -80,7 +82,8 @@
 		<a href = "#home" class = "ui-btn ui-btn-right  ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
 		<a href = "#" class = "ui-btn ui-btn-left  ui-corner-all ui-shadow ui-icon-lock ui-btn-icon-left">login</a>
 		<h5>MobileTz</h5>			
-	</div>	
+	</div>
+		
 	<div data-role = "main" class = "ui-content">
 		<a href = "#ourproducts" class="ui-btn  ui-corner-all ui-shadow ui-icon-back ui-btn-icon-left">Back to brands</a>
 		<div data-role = "listview" data-inset = "true" data-filter = "true">
@@ -89,6 +92,7 @@
 			{% endfor %}
 		</div>
 	</div>
+	
 	<div data-role = "footer" ><br>
 		<h4>&copy; {% now " Y" %}</h4><br>
 	</div>
@@ -113,6 +117,7 @@
 			{% endfor %}
 		</div>
 	</div>
+	
 	<div data-role = "footer" ><br>
 		<h4>&copy; {% now " Y" %}</h4><br>
 	</div>
@@ -164,6 +169,7 @@
 	<div data-role="header">
 		<h1></h1>
 	  </div>
+	  
 	<div data-role = "main" class = "ui-content">
 		<img style = "border-radius: 10px;" src = "{{ image.image.url }}" width = "100%" height = ""/>
 	</div>
@@ -227,7 +233,7 @@
 
 
 <!-- conctact us page ---->
-<div data-role = "page" id = "conctactus" ui-theme = "a">
+<div data-role="page" data-url="/"  id = "conctactus" >
 	<div data-role = "header" data-position = "fixed">
 		<a href = "#home" class = "ui-btn ui-btn-right  ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
 		<a href = "#" class = "ui-btn ui-btn-left  ui-corner-all ui-shadow ui-icon-lock ui-btn-icon-left">login</a>
@@ -235,7 +241,34 @@
 	</div>	
 	
 	<div data-role = "main" class = "ui-content">
+		<p></p>
+		<form action ="/sendContact" method = "POST">
+			{% csrf_token %}
+			 <div class="">
+				<label for = "full name">
+					Full name
+				</label>
+				<input type = "text" id ="name" name = "name" placeholder = "Enter full name">
+				<label for = "Mobile number">
+					Your mobile number
+				</label>
+				<input type = "text" id ="mobilenumber" name = "mobilenumber" placeholder = "Enter mobile number">
+				<label for = "e mail">
+					Your e-mail
+				</label>
+				<input type = "text" id ="email" name = "email" placeholder = "Enter e-mail">
+				<label for = "message">Your message</label>
+				<textarea name = "message"></textarea>
+				<label for = "rate">
+					Rate us out of 10
+				</label>
+				<input type = "range" min = 0 max = 10 name = "rate">				
+			</div>
 					
+			<input type = "submit" value = "submit">
+			
+		</form>
+							
 	</div>
 	
 	<div data-role = "footer"><br>
