@@ -2,10 +2,10 @@
 {%block contents%}
 
 <!-- login user home --->
-<div data-role = "page" id = "" data-url "/" data-theme = "d">
+<div data-role = "page" id = "loginHome" data-url "/" data-theme = "d">
 	<div data-role = "header" data-position = "fixed">
-		<a href = "#home" class = "ui-btn ui-btn-right  ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
-		<a href = "#" class = "ui-btn ui-btn-left  ui-corner-all ui-shadow ui-icon-info ui-btn-icon-left">log out</a>
+		<a href = "#loginHome" class = "ui-btn ui-btn-right  ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
+		<a href = "{% url 'logout' loginDealer.id %}" class = "ui-btn ui-btn-left  ui-corner-all ui-shadow ui-icon-info ui-btn-icon-left">log out</a>
 		<h5>MobileTz</h5>			
 	</div>	
 	

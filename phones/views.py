@@ -78,6 +78,9 @@ def login(request):
 				dealerStatus = 'member'
 		if	dealerStatus == 'member':
 			dealer = Dealer.objects.get(username = username[0])
+			dealer.login_status = "login"
+			dealer.save()
+			
 			return render(request, 'login.html',{'loginDealer':dealer})
 		else:
 			
@@ -86,6 +89,13 @@ def login(request):
 	return HttpResponseRedirect('/#login')
 	
 
-			
+def logout(request, user_id):
+	
+	 logoutDealer = Dealer.objects.get(id = user_id)
+	 logoutDealer.login_status = "logout"
+	 logoutDealer.save()
+	 
+	 return HttpResponseRedirect("/#home")
+				
 		
 		
