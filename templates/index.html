@@ -37,11 +37,9 @@
 	<div data-role = "main" class = "ui-content">
 		Brand for all phones avilable
 		<ul data-role = "listview" data-inset = "true" data-filter = "true">
-			
-			{% for phone in allPhones %}
-			<li><a href = "#phone{{phone.id}}">{{phone.brand_of_Phone}}</a></li>
-			{% endfor %}
-			
+			<li><a href = "#nokia">Nokia<span class = "ui-li-count">{{nokia}}</span></a></li>
+			<li><a href = "#htc">Htc<span class = "ui-li-count">{{htc}}</span></a></li>
+			<li><a href = "#sony">Sony<span class = "ui-li-count">{{sony}}</span></a></li>			
 		</ul>
 	
 	</div>
@@ -50,6 +48,72 @@
 		<h4>&copy; {% now " Y" %}</h4><br>
 	</div>
 </div>
+
+
+
+<!-- product in  given brand ---- 
+			{% for phone in allPhones %}
+			<li><a href = "#phone{{phone.id}}">{{phone.brand_of_Phone}}</a></li>
+			{% endfor %}--->
+
+<!-- for nokia -->
+<div data-role = "page" id = "nokia">
+	<div data-role = "header">
+	
+	</div>
+	<div data-role = "main" class = "ui-content">
+		<a href = "#ourproducts" class="ui-btn  ui-corner-all ui-shadow ui-icon-back ui-btn-icon-left">Back to brands</a>
+		<div data-role = "listview" data-inset = "true" data-filter = "true">
+			{% for phone in allNokia%}
+			<li><a href = "#phone{{phone.id}}">{{phone.brand_of_Phone}} {{phone.model_of_Phone}} </a></li>
+			{% endfor %}
+		</div>
+	</div>
+	<div data-role = "footer">
+	
+	</div>
+</div>
+
+
+<!-- for htc-->
+<div data-role = "page" id = "htc">
+	<div data-role = "header">
+	
+	</div>
+	<div data-role = "main" class = "ui-content">
+		<a href = "#ourproducts" class="ui-btn  ui-corner-all ui-shadow ui-icon-back ui-btn-icon-left">Back to brands</a>
+		<div data-role = "listview" data-inset = "true" data-filter = "true">
+			{% for phone in allHtc %}
+			<li><a href = "#phone{{phone.id}}">{{phone.brand_of_Phone}} {{phone.model_of_Phone}} </a></li>
+			{% endfor %}
+		</div>
+	</div>
+	<div data-role = "footer">
+	
+	</div>
+</div>
+
+
+
+
+<!--- for sony --->
+<div data-role = "page" id = "sony">
+	<div data-role = "header">
+	
+	</div>
+	<div data-role = "main" class = "ui-content">
+		<a href = "#ourproducts" class="ui-btn  ui-corner-all ui-shadow ui-icon-back ui-btn-icon-left">Back to brands</a>
+		<div data-role = "listview" data-inset = "true" data-filter = "true">
+			{% for phone in allSony%}
+			<li><a href = "#phone{{phone.id}}">{{phone.brand_of_Phone}} {{phone.model_of_Phone}} </a></li>
+			{% endfor %}
+		</div>
+	</div>
+	<div data-role = "footer">
+	
+	</div>
+</div>
+
 
 
 
@@ -63,7 +127,7 @@
 	</div>	
 	
 	<div data-role = "main" class = "ui-content">
-		<a href = "#ourproducts" class="ui-btn  ui-corner-all ui-shadow ui-icon-back ui-btn-icon-left">Back to brands</a>
+		<a href = "#{{phone.brand_of_Phone}}" class="ui-btn  ui-corner-all ui-shadow ui-icon-back ui-btn-icon-left">Back to {{phone.brand_of_Phone}}</a>
 		<div class = "ui-corner-all ui-shadow" style = "padding-left:2%;">
 			<p>  {{phone}}</p>
 			

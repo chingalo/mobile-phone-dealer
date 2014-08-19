@@ -17,8 +17,23 @@ from phones.models import *
 
 def home(request):
 	allPhones = Phone.objects.all()
-
+	allImages = Phone_gallery.objects.all()
 	
-	context = {'allPhones':allPhones,}
+	allNokia = []
+	allHtc = []
+	allSony = []
+	for phone in allPhones:
+		if phone.brand_of_Phone == 'nokia':
+			allNokia.append(phone)
+		elif phone.brand_of_Phone == 'htc':
+			allHtc.append(phone)
+		elif phone.brand_of_Phone == 'sony':
+			allSony.append(phone)
+	
+	nokia = len(allNokia)
+	htc = len(allHtc)
+	sony = len(allSony)
+	
+	context = {'allPhones':allPhones,'allSony':allSony,'allNokia':allNokia,'allHtc':allHtc,'allImages':allImages,'nokia':nokia,'htc':htc,'sony':sony }
 	return render(request,'index.html',context)
 
