@@ -127,3 +127,13 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # Allow all host headers
 ALLOWED_HOSTS = ['*']
 
+#email configrarion
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_IMAP_HOST = 'imap.gmail.com'
+EMAIL_PORT = "587"
+EMAIL_HOST_USER = 'mobiletzdealer@gmail.com'
+EMAIL_HOST_PASSWORD = '0687168637'
+EMAIL_USE_TLS = True
+EMAIL_SENDER = 'mobiletzdealer@gmail.com'
+EMAIL_SSL = True
+
