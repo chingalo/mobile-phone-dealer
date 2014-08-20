@@ -11,6 +11,6 @@ urlpatterns = patterns('',
     url(r'^(?P<user_id>\d+)/productManagement/$', views.productManagement, name='productManagement'),
     url(r'^(?P<user_id>\d+)/accountManagement/$', views.accountManagement, name='accountManagement'),
     url(r'^(?P<user_id>\d+)/dealerHome/$', views.dealerHome, name='dealerHome'),
-    #url(r'^(?P<user_id>\d+)/(?P<product_id>\d+)/storeSingleProduct/$', views.storeSingleProduct, name='storeSingleProduct'),
+    url(r'^(?P<user_id>\d+)/(?P<product_id>\d+)/sellProduct/$', views.sellProduct, name='sellProduct'),
     url(r'^#login/$', views.logoutForm, name='logoutForm'),
     )

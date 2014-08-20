@@ -2,17 +2,17 @@
 {%block contents%}
 
 <!-- login user home --->
-<div data-role = "page" id = "loginHome" data-url "/" data-theme = "d">
+<div data-role = "page" id = "loginHome"  data-theme = "d">
 	<div data-role = "header" data-position = "fixed">
 		<a href = "#loginHome" class = "ui-btn ui-btn-right  ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
-		<a href = "{% url 'logout' loginDealer.id %}" class = "ui-btn ui-btn-left  ui-corner-all ui-shadow ui-icon-info ui-btn-icon-left">log out</a>
+		<a href = "{% url 'logout' loginDealer.id %}" data-ajax = "false" class = "ui-btn ui-btn-left  ui-corner-all ui-shadow ui-icon-info ui-btn-icon-left">log out</a>
 		<h5>MobileTz</h5>			
 	</div>	
 	
 	<div data-role = "main" class = "ui-content">
-		<a href = "{% url 'myStore' loginDealer.id %}" class="ui-btn  ui-corner-all ui-shadow ui-icon-shop ui-btn-icon-left">My store</a>
-		<a href = "{% url 'productManagement' loginDealer.id %}" class="ui-btn  ui-corner-all ui-shadow ui-icon-gear ui-btn-icon-left" >Product Management</a>
-		<a href = "{% url 'accountManagement' loginDealer.id %}" class="ui-btn  ui-corner-all ui-shadow ui-icon-gear ui-btn-icon-left">Account managements</a>
+		<a href = "/{{loginDealer.id}}/myStore/" data-ajax="false" class="ui-btn  ui-corner-all ui-shadow ui-icon-shop ui-btn-icon-left">My store</a>
+		<a href = "{% url 'productManagement' loginDealer.id %}" data-ajax="false" class="ui-btn  ui-corner-all ui-shadow ui-icon-gear ui-btn-icon-left" >Product Management</a>
+		<a href = "{% url 'accountManagement' loginDealer.id %}" data-ajax="false"  class="ui-btn  ui-corner-all ui-shadow ui-icon-gear ui-btn-icon-left">Account managements</a>
     </div>
 	
 	<div data-role = "footer" data-position = "fixed"><br>

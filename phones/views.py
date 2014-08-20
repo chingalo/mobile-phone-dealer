@@ -119,6 +119,20 @@ def myStore(request, user_id):
 
 
 
+#sell product
+def sellProduct(request, user_id, product_id):
+	
+	loginDealer = Dealer.objects.get(id = user_id)
+	product = Phone.objects.get(id = product_id)
+	
+	currentNumber = product.quantity
+	product.quantity  = currentNumber - 1
+	product.save()
+	
+	return HttpResponseRedirect("/"+str(user_id)+"/myStore/")
+	
+	
+
 
 #product managements home
 def productManagement(request, user_id):
@@ -144,11 +158,13 @@ def accountManagement(request, user_id):
 #log out process
 def logout(request, user_id):
 	
-	 logoutDealer = Dealer.objects.get(id = user_id)
-	 logoutDealer.login_status = "logout"
-	 logoutDealer.save()
+	
+	logoutDealer = Dealer.objects.get(id = user_id)
+	logoutDealer.login_status = "logout"
+	logoutDealer.save()
+	
+	return HttpResponseRedirect("/") 
 	 
-	 return HttpResponseRedirect('/')
 				
 def logoutForm(request):
 	

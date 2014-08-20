@@ -3,17 +3,19 @@
 
 
 <!---- my store ------->
-<div data-role = "page" id = "mystore" data-url "/login" data-theme = "d">
+<div data-role = "page" id = "mystore" data-url "/" data-theme = "d">
 	<div data-role = "header" data-position = "fixed">
 		<a href = "{% url 'dealerHome' loginDealer.id %}" class = "ui-btn ui-btn-right  ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
-		<a href = "{% url 'logout' loginDealer.id %}" class = "ui-btn ui-btn-left  ui-corner-all ui-shadow ui-icon-info ui-btn-icon-left">log out</a>
+		<a href = "{% url 'logout' loginDealer.id %}" data-ajax = "false" class = "ui-btn ui-btn-left  ui-corner-all ui-shadow ui-icon-info ui-btn-icon-left">log out</a>
 		<h5>MobileTz</h5>			
 	</div>		
 	<div data-role = "main" class = "ui-content">
 		{% if allProducts %}
 		<ul data-role = "listview" data-inset = "true" data-filter = "true">
 			{% for product in allProducts %}
-			<li><a href = "#store{{product.id}}">{{product.brand_of_Phone}} {{product}}</a></li>	
+			<li>
+				<a href = "#store{{product.id}}">{{product.brand_of_Phone}} {{product}}</a>					
+			</li>	
 			{% endfor %}	
 		</ul>
 		{% else %}
@@ -27,19 +29,43 @@
 	</div>
 </div>
 
-
-
 <!--- single product in store --->
 {% for product in allProducts %}
 <div data-role = "page" id = "store{{product.id}}"  data-theme = "d">
 	<div data-role = "header" data-position = "fixed">
 		<a href = "{% url 'dealerHome' loginDealer.id %}" class = "ui-btn ui-btn-right  ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
-		<a href = "{% url 'logout' loginDealer.id %}" class = "ui-btn ui-btn-left  ui-corner-all ui-shadow ui-icon-info ui-btn-icon-left">log out</a>
+		<a href = "{% url 'logout' loginDealer.id %}" data-ajax = "false"  class = "ui-btn ui-btn-left  ui-corner-all ui-shadow ui-icon-info ui-btn-icon-left">log out</a>
 		<h5>MobileTz</h5>			
 	</div>		
 	<div data-role = "main" class = "ui-content">
 		<a href = "#mystore" class="ui-btn  ui-corner-all ui-shadow ui-icon-back ui-btn-icon-left">Back to My store</a>
-		single product : {{product}}
+		<div class = "ui-corner-all ui-shadow" style = "padding-left:2%;">
+			<p>
+				Name : {{product.brand_of_Phone}} {{product.model_of_Phone}}<br>
+				Description: {{product.description}}<br>
+				Price : {{product.price}}<br>
+				Quantity available : {{product.quantity}}		
+			</p>
+			
+			<div data-role = "collapsible">
+				<!-- sell product --->
+				<h1>Sell {{product.brand_of_Phone}} {{product.model_of_Phone}}</h1>
+				<div>
+					<a href="/{{loginDealer.id}}/{{product.id}}/sellProduct" data-ajax="false" class="ui-btn ui-corner-all ui-btn-inline ui-mini ">Sell Now</a>
+				</div>
+			</div>
+			<div data-role = "collapsible">				
+				<!--product images -->
+				<h1>Gallery</h1>
+				{% if product.phone_gallery_set.all %} 
+				{% for image in product.phone_gallery_set.all %}				
+				<img style = "border-radius: 10px;height:100px" src = "{{ image.image.url }}" width = "50%"  />		
+				{% endfor %}
+				{% else %} 
+				<p>No image add for this phone</p>
+				{% endif %}
+			</div>
+		</div>
     </div>
 	
 	<div data-role = "footer" data-position = "fixed"><br>
@@ -47,6 +73,4 @@
 	</div>
 </div>
 {% endfor %}
-
-
 {%endblock%}
