@@ -13,7 +13,7 @@
 		{% if allProducts %}
 		<ul data-role = "listview" data-inset = "true" data-filter = "true">
 			{% for product in allProducts %}
-			<li><a href = "#">{{product}}</a></li>	
+			<li><a href = "#store{{product.id}}">{{product.brand_of_Phone}} {{product}}</a></li>	
 			{% endfor %}	
 		</ul>
 		{% else %}
@@ -26,6 +26,27 @@
 		<h4>&copy; {% now " Y" %}</h4><br>
 	</div>
 </div>
+
+
+
+<!--- single product in store --->
+{% for product in allProducts %}
+<div data-role = "page" id = "store{{product.id}}"  data-theme = "d">
+	<div data-role = "header" data-position = "fixed">
+		<a href = "{% url 'dealerHome' loginDealer.id %}" class = "ui-btn ui-btn-right  ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
+		<a href = "{% url 'logout' loginDealer.id %}" class = "ui-btn ui-btn-left  ui-corner-all ui-shadow ui-icon-info ui-btn-icon-left">log out</a>
+		<h5>MobileTz</h5>			
+	</div>		
+	<div data-role = "main" class = "ui-content">
+		<a href = "#mystore" class="ui-btn  ui-corner-all ui-shadow ui-icon-back ui-btn-icon-left">Back to My store</a>
+		single product : {{product}}
+    </div>
+	
+	<div data-role = "footer" data-position = "fixed"><br>
+		<h4>&copy; {% now " Y" %}</h4><br>
+	</div>
+</div>
+{% endfor %}
 
 
 {%endblock%}
