@@ -79,8 +79,7 @@ def login(request):
 		form = request.POST
 		username = form.getlist('username')
 		password = form.getlist('password') 
-		dealerStatus = ""
-		
+				
 		for dealer in dealers:
 			if dealer.username == username[0] and dealer.password == password[0] :
 				dealerStatus = 'member'

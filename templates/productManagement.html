@@ -2,6 +2,8 @@
 {%block contents%}
 
 <!---- product management --->
+{% if loginDealer.login_status == "login" %}
+
 <div data-role = "page" id = "productmanagement" data-url "/" data-theme = "d">
 	<div data-role = "header" data-position = "fixed">
 		<a href = "{% url 'dealerHome' loginDealer.id %}" class = "ui-btn ui-btn-right  ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
@@ -19,5 +21,27 @@
 	</div>
 </div>
 
+
+
+
+
+<!-- for non login dealer -->
+{% else %}
+<div data-role="page"  data-url "/"  id = "login" data-theme = "d" data-dialog = "true">
+	<div data-role = "header" >		
+		<h5>MobileTz</h5>			
+	</div>	
+	<div data-role = "main" class = "ui-content">
+		<form action ="/login" method = "POST">
+			{% csrf_token %}
+			<input type = "text" name = "username"  id = "" placeholder = "User name">
+			<input type = "password" name = "password"  id = "password" placeholder = "Password" onpaste="return false;">
+			<input type = "submit" value = "submit">
+		</form>						
+	</div>
+	
+</div>
+
+{% endif %}
 
 {%endblock%}
