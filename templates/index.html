@@ -250,7 +250,7 @@
 	
 	<div data-role = "main" class = "ui-content">
 		<p></p>
-		<form action ="/sendContact" method = "POST">
+		<form action ="/sendContact" method = "POST" data-ajax = "false">
 			{% csrf_token %}
 			 <div class="">
 				<label for = "full name">

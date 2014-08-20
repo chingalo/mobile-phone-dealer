@@ -21,7 +21,7 @@
 		</ul>
 		{% else %}
 		<P>Currently You have no product in your store</P>
-		<a href = "#" class="ui-btn  ui-corner-all ui-shadow ui-icon-plus ui-btn-icon-left">Add product</a>
+		<a href = "#" class="ui-btn  ui-corner-all ui-shadow ui-icon-plus ui-btn-icon-left" data-ajax = "false" a>Add product</a>
 		{% endif %}
     </div>
 	
@@ -29,6 +29,8 @@
 		<h4>&copy; {% now " Y" %}</h4><br>
 	</div>
 </div>
+
+
 
 <!--- single product in store --->
 {% for product in allProducts %}
