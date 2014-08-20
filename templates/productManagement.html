@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{%block contents%}
+
+<!---- product management --->
+<div data-role = "page" id = "productmanagement" data-url "/" data-theme = "d">
+	<div data-role = "header" data-position = "fixed">
+		<a href = "{% url 'dealerHome' loginDealer.id %}" class = "ui-btn ui-btn-right  ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
+		<a href = "{% url 'logout' loginDealer.id %}" class = "ui-btn ui-btn-left  ui-corner-all ui-shadow ui-icon-info ui-btn-icon-left">log out</a>
+		<h5>MobileTz</h5>			
+	</div>	
+	
+	<div data-role = "main" class = "ui-content">
+		
+		product managements
+    </div>
+	
+	<div data-role = "footer" data-position = "fixed"><br>
+		<h4>&copy; {% now " Y" %}</h4><br>
+	</div>
+</div>
+
+
+{%endblock%}

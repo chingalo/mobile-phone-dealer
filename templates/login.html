@@ -10,15 +10,15 @@
 	</div>	
 	
 	<div data-role = "main" class = "ui-content">
-		login user : {{loginDealer}}
-	
-	</div>
+		<a href = "{% url 'myStore' loginDealer.id %}" class="ui-btn  ui-corner-all ui-shadow ui-icon-shop ui-btn-icon-left">My store</a>
+		<a href = "{% url 'productManagement' loginDealer.id %}" class="ui-btn  ui-corner-all ui-shadow ui-icon-gear ui-btn-icon-left" >Product Management</a>
+		<a href = "{% url 'accountManagement' loginDealer.id %}" class="ui-btn  ui-corner-all ui-shadow ui-icon-gear ui-btn-icon-left">Account managements</a>
+    </div>
 	
 	<div data-role = "footer" data-position = "fixed"><br>
 		<h4>&copy; {% now " Y" %}</h4><br>
 	</div>
 </div>
-
 
 
 

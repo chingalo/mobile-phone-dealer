@@ -11,7 +11,7 @@
 		<form action ="/login" method = "POST">
 			{% csrf_token %}
 			<input type = "text" name = "username" id = "" value = "{{username}}">
-			<input type = "password" name = "password" id = "password" placeholder = "Password" onpaste="return false;">
+			<input type = "password" name = "password" value = "" id = "password" placeholder = "Password" onpaste="return false;">
 			<input type = "submit" value = "submit">
 		</form>						
 	</div>

@@ -15,6 +15,7 @@ from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from phones.models import *
 
 
+#home page
 def home(request):
 	allPhones = Phone.objects.all()
 	allImages = Phone_gallery.objects.all()
@@ -44,6 +45,8 @@ def home(request):
 	return render(request,'index.html',context)
 
 
+
+#send contatc form to me
 def sendContact(request):	
 	if request.POST:
 		form = request.POST
@@ -62,6 +65,11 @@ def sendContact(request):
 	return HttpResponseRedirect('/')
 
 
+
+
+
+
+#login process
 def login(request):
 	
 	if request.POST:
@@ -87,15 +95,60 @@ def login(request):
 			return render(request, 'loginTry.html',{'username':username[0]})			
 					
 	return HttpResponseRedirect('/#login')
-	
 
+
+
+
+#dealer home
+def dealerHome(request, user_id):
+	
+	dealer = Dealer.objects.get(id = user_id)	
+	return render(request, 'login.html',{'loginDealer':dealer})
+
+
+
+
+#my store home
+def myStore(request, user_id):
+	
+	loginDealer = Dealer.objects.get(id = user_id)
+	allProducts = Phone.objects.filter(dealer = loginDealer)
+	
+	context = {'loginDealer': loginDealer,'allProducts':allProducts }
+	return render(request, 'mystore.html',context)
+
+
+
+#product managements home
+def productManagement(request, user_id):
+	
+	loginDealer = Dealer.objects.get(id = user_id)
+	#allProducts = Phone.objects.filter(dealer = loginDealer)
+	
+	context = {'loginDealer': loginDealer,}
+	return render(request, 'productManagement.html',context)
+
+
+
+#account manageents home
+def accountManagement(request, user_id):
+	
+	loginDealer = Dealer.objects.get(id = user_id)
+	#allProducts = Phone.objects.filter(dealer = loginDealer)
+	
+	context = {'loginDealer': loginDealer,}
+	return render(request, 'accountManagement.html',context)
+
+
+#log out process
 def logout(request, user_id):
 	
 	 logoutDealer = Dealer.objects.get(id = user_id)
 	 logoutDealer.login_status = "logout"
 	 logoutDealer.save()
 	 
-	 return HttpResponseRedirect("/#home")
+	 return HttpResponseRedirect('/')
 				
-		
-		
+def logoutForm(request):
+	
+	return render(request, 'loginTry.html',{'username':"","password":""})

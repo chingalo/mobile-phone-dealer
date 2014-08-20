@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{%block contents%}
+
+
+<!---- my store ------->
+<div data-role = "page" id = "mystore" data-url "/login" data-theme = "d">
+	<div data-role = "header" data-position = "fixed">
+		<a href = "{% url 'dealerHome' loginDealer.id %}" class = "ui-btn ui-btn-right  ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
+		<a href = "{% url 'logout' loginDealer.id %}" class = "ui-btn ui-btn-left  ui-corner-all ui-shadow ui-icon-info ui-btn-icon-left">log out</a>
+		<h5>MobileTz</h5>			
+	</div>		
+	<div data-role = "main" class = "ui-content">
+		{% if allProducts %}
+		<ul data-role = "listview" data-inset = "true" data-filter = "true">
+			{% for product in allProducts %}
+			<li><a href = "#">{{product}}</a></li>	
+			{% endfor %}	
+		</ul>
+		{% else %}
+		<P>Currently You have no product in your store</P>
+		<a href = "#" class="ui-btn  ui-corner-all ui-shadow ui-icon-plus ui-btn-icon-left">Add product</a>
+		{% endif %}
+    </div>
+	
+	<div data-role = "footer" data-position = "fixed"><br>
+		<h4>&copy; {% now " Y" %}</h4><br>
+	</div>
+</div>
+
+
+{%endblock%}
