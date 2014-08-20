@@ -137,11 +137,36 @@ def sellProduct(request, user_id, product_id):
 def productManagement(request, user_id):
 	
 	loginDealer = Dealer.objects.get(id = user_id)
-	#allProducts = Phone.objects.filter(dealer = loginDealer)
+	allProducts = Phone.objects.filter(dealer = loginDealer)
 	
-	context = {'loginDealer': loginDealer,}
+	context = {'loginDealer': loginDealer,'allProducts':allProducts }
 	return render(request, 'productManagement.html',context)
 
+
+#edit mobile phone
+def editProduct(request, user_id, product_id):
+	
+	product = Phone.objects.get(id = product_id)
+	
+	if request.POST:
+		form = request.POST
+		
+		description = form.getlist('description')
+		quantity = form.getlist('quantity')
+		price = form.getlist('price')
+			
+		product.description = description[0]
+		product.quantity = int(quantity[0])
+		product.price = int(price[0])
+		
+		if product.price > 0:
+			product.status = "new"
+		
+		product.save()
+		
+	return HttpResponseRedirect("/"+str(user_id)+"/productManagement/") 
+			
+	
 
 
 #account manageents home
